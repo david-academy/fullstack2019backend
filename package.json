@@ -6,9 +6,13 @@
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf build && cd ../fullstack2019/part2/phonebook && npm run build --prod && cp -r build ../../../fullstack2019backend/",
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
+    "logs:prod": "heroku logs --tail"
   },
-  "author": "David Andberg",
+  "author": "David-academy",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
